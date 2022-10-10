@@ -5,4 +5,4 @@
 ## Prerequisite
 
 * Excel
-* venv
+* requirements.txt
