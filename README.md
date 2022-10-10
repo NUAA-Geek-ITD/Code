@@ -1,2 +1,1 @@
-# Code
-Code submitted by all members
+此分支用作C&C++教学组上传课件，发布题目以及题解
