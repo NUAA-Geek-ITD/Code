@@ -239,13 +239,14 @@ def draw_queue(ws, sftp: paramiko.SFTPClient, response):
                                                                   1, 11, 0.75, task.seed, -1, 0, 0, 0, False,
                                                                   task.height, task.width, 0, False, 32, 0, "", "", 0)
 
-        output_dir = "outputs/txt2img-images/setu.png"
+        output_path = "outputs/txt2img-images/setu.png"
+        server_path = "/root/temp/setu.png"
         image = result[0][0]
-        image.save(output_dir, format="PNG")
+        image.save(output_path, format="PNG")
 
-        sftp.put(output_dir, "/root/temp/setu.png")
+        sftp.put(output_path, server_path)
         loop.create_task(say(ws, response,
-                             f"[CQ:reply,id={task.response['message_id']}][CQ:image,file=file:///root/temp/setu.png]"))
+                             f"[CQ:reply,id={task.response['message_id']}][CQ:image,file=file://{server_path}]"))
         drawQueue.pop(0)
     working = False
 
